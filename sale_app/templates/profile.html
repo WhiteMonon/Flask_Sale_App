@@ -1,0 +1,36 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Thông tin cá nhân</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Tên đăng nhập:</strong> {{ current_user.username }}</p>
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label"><strong>Tên đầy đủ</strong></label>
+                        <input type="text" class="form-control" id="fullname" value="{{ current_user.fullname or '' }}" placeholder="Chưa cập nhật">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label"><strong>Địa chỉ:</strong></label>
+                        <input type="text" class="form-control" id="address" value="{{ current_user.address or '' }}" placeholder="Chưa cập nhật">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label"><strong>Số điện thoại:</strong></label>
+                        <input type="text" class="form-control" id="phone" value="{{ current_user.phone or '' }}" placeholder="Chưa cập nhật">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="UpdateProfile()">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

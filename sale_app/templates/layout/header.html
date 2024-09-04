@@ -1,0 +1,47 @@
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+      <a class="navbar-brand">Shop uy tín</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('index')}}">Trang Chủ</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('index')}}">About</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{{ url_for('index')}}">Tất cả sản phẩm</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      {% for category in category %}
+                        <li><a class="dropdown-item" href="{{ url_for('index' , category_id = category.id)}}">{{ category.name }}</a></li>
+                      {% endfor %}
+                  </ul>
+              </li>
+          </ul>
+          <form class="d-flex">
+              <a href="{{ url_for('cart') }}" class="btn btn-outline-dark">
+                  <i class="bi-cart-fill me-1"></i>
+                    Cart
+                  <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart-count">0</span>
+              </a>
+          </form>
+          {% if current_user.is_authenticated %}
+          <div class="ms-2 d-flex align-items-center">
+              <p class="text-dark me-2 fw-bold mb-0">Xin chào, <a href="{{ url_for('profile') }}">{{ current_user.fullname }}</a></p>
+              <a href="{{ url_for('logout') }}" class="btn btn-outline-primary">Đăng xuất</a>
+          </div>    
+          {% else %}
+          <div class="ms-2 d-flex">
+              <a href="{{ url_for('register') }}" class="btn btn-outline-primary me-2">Đăng ký</a>
+              <a href="{{ url_for('login') }}" class="btn btn-primary">Đăng nhập</a>
+          </div>
+          {% endif %}
+      </div>
+  </div>
+</nav>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+{% endblock %}
+

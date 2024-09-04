@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 13",
+        "category_id": 1,
+        "price": 23000000,
+        "description": "Latest Apple iPhone with A15 Bionic chip",
+        "image": "https://cdn.viettelstore.vn/Images/Product/ProductImage/452166194.jpeg",
+        "stock": 50,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 2,
+        "name": "Samsung Galaxy S21",
+        "category_id": 1,
+        "price": 18000000,
+        "description": "Samsung's flagship smartphone with Exynos 2100",
+        "image": "https://cdn.tgdd.vn/Products/Images/42/220833/samsung-galaxy-s21-tim-600x600.jpg",
+        "stock": 30,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 3,
+        "name": "Google Pixel 6",
+        "category_id": 1,
+        "price": 16000000,
+        "description": "Google's latest smartphone with Tensor chip",
+        "image": "https://cdn.tgdd.vn/Products/Images/42/233009/google-pixel-6-600x600.jpg",
+        "stock": 20,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 4,
+        "name": "iPad Pro",
+        "category_id": 2,
+        "price": 25000000,
+        "description": "Apple's latest iPad with M1 chip",
+        "image": "https://product.hstatic.net/1000300544/product/ipad-pro-13-select-wifi-spacegray-202210_b4dfa622124e441481175ca75053edad.jpeg",
+        "stock": 15,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 5,
+        "name": "Samsung Galaxy Tab S7",
+        "category_id": 2,
+        "price": 15000000,
+        "description": "Samsung's latest tablet with Snapdragon 865+",
+        "image": "https://cdn.tgdd.vn/Products/Images/522/225031/samsung-galaxy-tab-s7-gold-new-600x600.jpg",
+        "stock": 25,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 6,
+        "name": "Microsoft Surface Pro 7",
+        "category_id": 2,
+        "price": 21000000,
+        "description": "Microsoft's latest tablet with Intel Core i5",
+        "image": "https://no1computer.vn/images/products/2022/10/12/large/microsoft-surface-pro-7-7_1665550588.jpg",
+        "stock": 10,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 7,
+        "name": "MacBook Pro M2",
+        "category_id": 3,
+        "price": 30000000,
+        "description": "Apple's latest MacBook with M2 chip",
+        "image": "https://product.hstatic.net/1000259254/product/macbook_pro_m2_gray_-1_90ed3468b4f4462fb5a254bf8313795f_master.jpg",
+        "stock": 5,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 8,
+        "name": "Dell XPS 13",
+        "category_id": 3,
+        "price": 23000000,
+        "description": "Dell's latest ultrabook with Intel Core i7",
+        "image": "https://newtechshop.vn/wp-content/uploads/2023/02/Dell-XPS-13-9315-i7-16GB-512GB-10.jpg",
+        "stock": 8,
+        "created_date": "2023-10-01T00:00:00"
+    },
+    {
+        "id": 9,
+        "name": "HP Spectre x360",
+        "category_id": 3,
+        "price": 28000000,
+        "description": "HP's latest convertible laptop with Intel Core i7",
+        "image": "https://gamalaptop.vn/wp-content/uploads/2021/07/HP-Spectre-x360-15-01.jpg",
+        "stock": 12,
+        "created_date": "2023-10-01T00:00:00"
+    }
+]

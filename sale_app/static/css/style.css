@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.fixed-size {
+    display: block;
+    height: 200px;
+    margin-top: 5px;
+}
+
+
+
+.btn-container {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;
+}
+
+#inputQuantity {
+    max-width: 3rem;
+}
+

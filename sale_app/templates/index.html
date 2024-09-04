@@ -1,0 +1,44 @@
+{% extends '/layout/base.html'%}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row g-2 mt-2">
+        {% for p in products %}
+            <div class="col-3 my-2">
+                <div class="card h-100">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <a href="{{ url_for('product' , id = p.id)}}">
+                            <img class="card-img-top fixed-size" src="{{ p.image }}" alt="Card image cap">
+                        </a>
+                    </div>
+                    <div class="card-body pb-5">
+                        <h5 class="card-title">{{ p.name }}</h5>
+                        {% if p.stock == 0 %}
+                            <p class="card-text text-danger">Hết hàng</p>
+                        {% else %}
+                            <p class="card-text"> Giá : {{ p.price | currency }}</p>
+                        {% endif %}
+                        
+                        <div class="btn-container mt-2">
+                            <a href="#" onclick="addToCart('{{ p.id }}', '{{ p.name }}', '{{ p.price }}', 1, event)" class="btn btn-primary">Đặt Hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- phân trang -->
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% for i in range(1, total_pages + 1) %}
+                <li class="page-item {% if i == page %}active{% endif %}">
+                    <a class="page-link" href="{{ url_for('index', page=i) }}">{{ i }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Thanh toán</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="fullname">Họ và tên</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" value="{{ current_user.fullname or '' }}" required>
+            </div>
+            <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ current_user.phone or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ giao hàng</label>
+                <textarea class="form-control" id="address" name="address" rows="3" required>{{ current_user.address or '' }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Phương thức thanh toán</label>
+                <select class="form-control" id="payment-method" name="payment-method" required>
+                    <option value="cod">Thanh toán khi nhận hàng</option>
+                </select>
+            </div>
+            <button onclick="Checkout(event)" class="btn btn-primary mt-3">Xác nhận đặt hàng</button>
+        </div>
+        <div class="col-md-4 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng đơn hàng</h5>
+                    <p class="card-text" id="cart-total">{{ formatted_total }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
+{% endblock %}

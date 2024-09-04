@@ -1,0 +1,37 @@
+{% extends 'layout/base.html'%}
+{% block content%}
+<section class="py-1">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ product.image }}" alt="..." /></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
+                <div class="fs-5 mb-5">
+                    <span>{{ product.price | currency}}</span>
+                    <p> Còn lại : {{ product.stock }}</p>
+                </div>
+                <p class="lead">{{ product.description }}</p>
+                <div class="d-flex">
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" id="button-decrement">-</button>
+                        <input class="form-control text-center" id="inputQuantity" type="num" max="{{ product.stock }}" value="1" style="max-width: 3rem" readonly/>
+                        <button class="btn btn-outline-secondary" type="button" id="button-increment">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-outline-dark flex-shrink-0 mt-3" type="button" onclick="addToCart('{{ product.id }}', '{{ product.name }}', '{{ product.price }}' , 'inputQuantity')">
+                    <i class="bi-cart-fill me-1"></i>
+                    Thêm Vào Giỏ Hàng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/product.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+{% endblock %}
+
+

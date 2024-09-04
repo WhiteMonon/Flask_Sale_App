@@ -1,0 +1,16 @@
+[
+    {
+      "username": "nguoidung",
+      "password": "123123",
+      "user_role": "USER",
+      "joined_date": "2024-03-14T00:00:00",
+      "fullname": "Nguyễn Văn A"
+    },
+    {
+      "username": "quantrivien",
+      "password": "123123",
+      "user_role": "ADMIN",
+      "joined_date": "2024-03-14T00:00:00",
+      "fullname": "Nguyễn Văn B"
+    }
+  ]

@@ -1,0 +1,70 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="min-height: 60vh;">
+    <h2 class="mb-4">Giỏ hàng của bạn</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart %}
+                        {% for item in cart %}
+                            <tr id="cart-item-{{ item.id }}">
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.price | currency }}</td>
+                                <td>
+                                    <input type="number" 
+                                        id="cart-item-quantity-{{ item.id }}"
+                                        class="form-control" 
+                                        value="{{ item.quantity }}" 
+                                        min="1" 
+                                        {% for product in products_in_cart %}
+                                                {% if product.id == item.id %}
+                                                    max="{{ product.stock }}"
+                                                {% endif %}
+                                        {% endfor %}
+                                        style="width: 70px;" 
+                                        onchange="updateCartItem('{{ item.id }}', this.value)"
+                                        oninput="this.value = Math.min(Math.max(this.value.replace(/[^0-9]/g, ''), 1), 99)"
+                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                </td>
+                                <td><p id="cart-total-{{ item.id }}">{{ (item.price * item.quantity) | currency }}</p></td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm" onclick="removeFromCart('{{ item.id }}')">Xóa</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Giỏ hàng của bạn đang trống</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng đơn hàng</h5>
+                    <p class="card-text" id="cart-total">0</p>
+                    <a href="{{ url_for('checkout') }}" id="checkout-button" class="btn btn-primary btn-block">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+{% endblock %}
