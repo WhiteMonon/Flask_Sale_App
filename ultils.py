@@ -217,11 +217,13 @@ def count_cart_item():
             total_item += int(item['quantity'])
     return total_item
 
+def load_data():
+    add_category_from_json()
+    add_product_from_json()
+    add_user_from_json()
+    add_order_status_from_json()
+
 
 
 if __name__ == '__main__':
-    # add_category_from_json()
-    # add_product_from_json()
-    # add_user_from_json()
-    add_order_status_from_json()
-    pass
+    load_data()
