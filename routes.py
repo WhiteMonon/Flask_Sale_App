@@ -149,7 +149,7 @@ def add_to_cart():
                 if int(item['quantity']) + int(quantity) > count_product:
                     return jsonify({
                         'success': False,
-                        'message': f'Số lượng sản phẩm không đủ , bạn đã có {item['quantity']} sản phẩm trong giỏ hàng'
+                        'message': f"Số lượng sản phẩm không đủ , bạn đã có {item['quantity']} sản phẩm trong giỏ hàng"
                     })
                 item['quantity'] = int(item['quantity']) + int(quantity)
                 break
@@ -157,7 +157,7 @@ def add_to_cart():
             if int(quantity) > count_product:
                 return jsonify({
                     'success': False,
-                    'message': f'Số lượng sản phẩm không đủ , bạn đã có {item['quantity']} sản phẩm trong giỏ hàng'
+                    'message': f"Số lượng sản phẩm không đủ , bạn đã có {item['quantity']} sản phẩm trong giỏ hàng" 
                 })
             cart.append({
                 'id': id,
@@ -169,7 +169,7 @@ def add_to_cart():
         if int(quantity) > count_product:
             return jsonify({
                 'success': False,
-                'message': f'Số lượng sản phẩm không đủ , số lượng thêm không thể vượt quá số lượng hàng'
+                'message': f"Số lượng sản phẩm không đủ , số lượng thêm không thể vượt quá số lượng hàng"
             })
         cart = [{
             'id': id,
@@ -210,7 +210,9 @@ def update_cart_item():
     for item in cart:
         if item['id'] == id:
             if int(quantity) > int(count_product):
-                return jsonify({'success': False , 'message': f'Số lượng sản phẩm không đủ , bạn đã có {count_product} sản phẩm trong giỏ hàng'})
+                return jsonify({'success': False ,
+                                'message': f"Số lượng sản phẩm không đủ , bạn đã có {count_product} sản phẩm trong giỏ hàng"
+                                })
             item['quantity'] = quantity
             break
     
