@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// nút giảm số lượng sản phẩm
 	decrementButton.addEventListener('click', function () {
-		debugger;
 		let currentValue = parseInt(inputQuantity.value);
 		if (currentValue > 1) {
 			inputQuantity.value = currentValue - 1;
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// nút tăng số lượng sản phẩm
 	incrementButton.addEventListener('click', function () {
-		debugger;
 		let currentValue = parseInt(inputQuantity.value);
 		let max = parseInt(inputQuantity.getAttribute('max'));
 		if (currentValue < max) {
