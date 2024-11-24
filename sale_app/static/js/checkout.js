@@ -4,6 +4,11 @@ function Checkout(event) {
     const paymentMethod = document.getElementById('payment-method').value;
     event.preventDefault();
 
+    if (!phone || !address || !paymentMethod) {
+        alert('Vui lòng điền đầy đủ thông tin.');
+        return;
+    }
+
     fetch('/api/checkout', {
         method: 'POST',
         headers: {
