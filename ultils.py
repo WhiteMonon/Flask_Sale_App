@@ -204,7 +204,8 @@ def create_user(username , password , fullname):
                     password=password, 
                     user_role='user', 
                     joined_date=datetime.now(),
-                    fullname=fullname)
+                    fullname=fullname,
+                    user_role="USER")
         db.session.add(user)
         db.session.commit()
         print("User created successfully.")
